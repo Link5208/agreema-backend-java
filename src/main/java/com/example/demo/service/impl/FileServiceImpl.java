@@ -247,7 +247,7 @@ public class FileServiceImpl implements FileService {
 		int inputPos = 0;
 		int outputPos = 0;
 
-		byte[] result = new byte[fileContent.length + 32]; // dư buffer padding
+		byte[] result = new byte[fileContent.length + 32];
 
 		while (inputPos < fileContent.length) {
 			int length = Math.min(chunkSize, fileContent.length - inputPos);
@@ -268,7 +268,7 @@ public class FileServiceImpl implements FileService {
 			outputPos += finalBlock.length;
 		}
 
-		return Arrays.copyOf(result, outputPos); // cắt đúng độ dài
+		return Arrays.copyOf(result, outputPos);
 	}
 
 	private byte[] decryptFile(byte[] encryptedData) throws Exception {
@@ -301,7 +301,7 @@ public class FileServiceImpl implements FileService {
 			outputPos += finalBlock.length;
 		}
 
-		return Arrays.copyOf(result, outputPos); // ⚠ Trả về đúng độ dài
+		return Arrays.copyOf(result, outputPos);
 	}
 
 }
